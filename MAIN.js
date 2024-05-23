@@ -1,3 +1,7 @@
+if (!vm) {
+let vm = document.getElementById("app")._reactRootContainer._internalRoot.current.child.pendingProps.store.getState().scratchGui.vm
+
+}
 function FindVar(sprite, specificName) {
     let jsonObj;
     if (sprite.toUpperCase() !== 'STAGE') {
@@ -28,6 +32,14 @@ function deleteCustomUI(id) {
         delete customUIContainers[id]; // Remove the container from the customUIContainers object
     }
 }
+
+function antistop() {
+	vm.runtime.stopAll = function() {
+    		alert('Nuh uhh')
+	};
+}
+
+
 
 function disableEditorCVP() {
     ProviderLog = vm.runtime.ioDevices.cloud.provider;
@@ -213,8 +225,8 @@ const MainbuttonFunctions = [openDisablersSpoofersUI, openVariablesUI, () => {},
 createCustomUI(id1, MainbuttonTexts.length, MainbuttonTexts, MainbuttonFunctions, 'Main Panel', true);
 
 const id2 = 'Kronos-Disablers/Spoofers';
-const ToggleableButtonTexts = ['Infinite Clones', 'CVP disabler', 'Spoof identity', 'Button 4'];
-const ToggleableButtonFunctions = [enableInfiniteClones, disableEditorCVP, spoofIdentity, () => {}];
+const ToggleableButtonTexts = ['Infinite Clones', 'CVP disabler', 'Spoof identity', 'No Stop'];
+const ToggleableButtonFunctions = [enableInfiniteClones, disableEditorCVP, spoofIdentity, antistop];
 
 function openDisablersSpoofersUI() {
     const container = customUIContainers[id2];
