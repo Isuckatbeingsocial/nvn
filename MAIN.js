@@ -1,5 +1,6 @@
+
 if (!vm) {
-let vm = document.getElementById("app")._reactRootContainer._internalRoot.current.child.pendingProps.store.getState().scratchGui.vm
+window.vm = document.getElementById("app")._reactRootContainer._internalRoot.current.child.pendingProps.store.getState().scratchGui.vm
 
 }
 function FindVar(sprite, specificName) {
